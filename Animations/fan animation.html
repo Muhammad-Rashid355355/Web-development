@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    @keyframes fananimation{
+        from{
+            transform: rotate(0deg);
+        }
+        to{
+            transform: rotate(360deg); 
+        }
+    }
+    .fan{
+        animation: fananimation 1.5s linear 0s;
+        animation-iteration-count: infinite;
+    }
+    @keyframes boxanimation{
+        0%{
+            background: gold;
+            margin-left: 0px;
+            margin-top: 0px;
+            width: 150px;
+        }
+        20%{
+            background: green;
+            margin-left: 500px;
+            margin-top:  0px;
+            width: 200px;
+        }
+        50%{
+            background: grey;
+            margin-top: 250px;
+            margin-left: 500px;
+            width: 200px;
+        }
+        80%{
+            background: indianred;
+            margin-left: 0px;
+            margin-top: 250px;
+            width: 150px;
+        }
+        100%{
+            background: indigo;
+            margin-left: 0px;
+            margin-top: 0px;
+        }
+    }
+    .box{
+        width: 150px;
+        height: 150px;
+        margin-top: 200px;
+        background: fuchsia;
+     animation: boxanimation 8s linear 0s, width 2s linear 0s;
+     animation-iteration-count: infinite;
+    }
+</style>
+</head>
+<body>
+    <div>
+        <img class="fan" src="images/FAN1.jpg" alt="IMG" width="250PX" height="250px">
+    </div>
+    <div class="box">
+        </div>
+ 
+    
+</body>
+</html>

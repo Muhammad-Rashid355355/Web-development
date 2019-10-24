@@ -1,0 +1,50 @@
+:Base KING
+:Title King Of The Road help
+
+1 Introduction=introduction
+1 Installation=install
+1 Driving controls=control
+1 Camera controls=camera_controls
+1 Main menu
+2 What can you do in the main menu=main_menu
+2 Change driver=change_driver
+2 Tape recorder=tape_recorder
+2 Single Player=game
+2 Multiplayer=multiplayer
+2 Controllers=controllers
+2 Graphics=graphics
+1 On the road
+2 On the road=on_the_road
+2 "On the road" menu=on_the_road_menu
+2 Info borads=info_boards
+2 Orders=orders
+2 Sport competitions=sport_competitions
+2 Service=service
+2 Refueling=refueling
+2 Changing your truck=changing_your_truck
+2 Hired drivers=hired_drivers
+2 My company=my_company
+2 CB Radio=cb_radio
+2 Ordering Vehicles=ordering_vehicles
+2 Control keys=control_keys
+1 Credits
+2 Credits=credits
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

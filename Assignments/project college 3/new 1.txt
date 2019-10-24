@@ -1,0 +1,7 @@
+<html>
+<title>
+Registration Form
+</title>
+<head>
+Registration Form
+</head>

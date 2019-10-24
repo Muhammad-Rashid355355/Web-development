@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        @keyframes mycar{
+            from{
+                margin-left: 0px;
+            }
+            to{
+                margin-left: 100%;
+            }
+        }
+        #car{
+            animation:  mycar 6s linear 0s;
+            position: absolute;
+            animation-iteration-count: infinite;
+        }
+        @keyframes wheel1{
+            from{
+                margin-left: 0px;
+                transform: rotate(0deg);
+            }
+            to{ 
+            margin-left:100%;
+            transform: rotate(360deg);
+        }
+        }
+        #wheel1 span img{
+            position: absolute;
+            animation: wheel1 6s linear 0s;
+            animation-iteration-count: infinite;
+            width: 55px;
+            height: 55px;
+            top: 103px;
+            left: 59px;
+        }
+        @keyframes wheel2{
+            from{
+                margin-left: 0px;
+                transform: rotate(0deg);
+            }
+           to{ margin-left:100%;
+            transform: rotate(360deg);
+        }
+        }
+        #wheel2 span img{
+            position: absolute;
+            animation: wheel2 6s linear 0s;
+            animation-iteration-count: infinite;
+            width: 55px;
+            height: 55px;
+            left: 237px;
+            top: 103px;
+        }
+    </style>
+</head>
+<body>
+        <div>
+                <img id="car" src="images/my-car.png" alt="img" width="314px" height="176px">
+        </div>
+                <div id="wheel1">
+                    <span>
+                <img  src="images/wheel.png" alt="">
+            </span>
+            </div>
+            <div  id="wheel2">
+            <span>
+                <img  src="images/wheel.png" alt="">
+            </span>
+            </div>
+    <div> 
+        <img src="images/myroad.jpg" alt="img" width="100%" height=" 400px">
+    </div>
+</body>
+</html>
