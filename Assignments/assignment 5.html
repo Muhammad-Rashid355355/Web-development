@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>boxs animaion</title>
+    <style>
+        @keyframes box1animation{
+            0%{
+               margin-left: 0px;
+               margin-top: 0px;
+            }
+            20%{
+           margin-left: 800px;
+           margin-top: 0px;
+           background-color: plum;
+           border-radius: 20px;
+            }
+            40%{
+                margin-top: 250px;
+                margin-left: 800px;
+                background-color: powderblue;
+                border-radius: 40px;
+            }
+            60%{
+                margin-top: 250px;
+                margin-left: 0px;
+                background-color: rosybrown;
+                border-radius: 60px;
+            }
+            80%{
+                margin-top: 0px;
+                margin-left: 0px;
+                background-color: royalblue;
+                border-radius: 80px;
+            }
+        }
+        .box1{
+            width: 200px;
+            height: 200px;
+            background-color: plum;
+            position: absolute;
+            left: 220px;
+            animation: box1animation 8s linear 0s;
+            animation-iteration-count: infinite;
+        }
+        @keyframes box2animation{
+            0%{
+               margin-left: 0px;
+               margin-top: 0px;
+            }
+            20%{
+           margin-left: 900px;
+           margin-top: 0px;
+           background-color: plum;
+           border-radius: 20px;
+            }
+            40%{
+                margin-top: 250px;
+                margin-left: 900px;
+                background-color: powderblue;
+                border-radius: 40px;
+            }
+            60%{
+                margin-top: 250px;
+                margin-left: 0px;
+                background-color: rosybrown;
+                border-radius: 60px;
+            }
+            80%{
+                margin-top: 0px;
+                margin-left: 0px;
+                background-color: royalblue;
+                border-radius: 80px;
+            }
+        }
+        .box2{
+            width: 200px;
+            height: 200px;
+            background-color: plum;
+            border-radius: 0px;
+            animation: box2animation 9s linear 0s;
+            animation-iteration-count: infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="boxes">
+        <div class="box1">
+
+        </div>
+        <div class="box2">
+
+            </div>
+
+    </div>
+    
+</body>
+</html>
