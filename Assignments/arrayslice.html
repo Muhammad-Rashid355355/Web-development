@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>array2</title>
+</head>
+<body>
+    <input id="textbox" type="text">
+    <button onclick="result()">get result</button>
+    <button class="result" onclick="splitdata()">split data</button>
+    <input id="textbox2" type="text">
+    <button class="result1" onclick="slicedata()">slice data</button>
+    <input id="textbox3" type="text">
+    <input id="maintextbox" type="text">
+    <button onclick="remove()">remove</button>
+    <input id="removebox" type="text">
+    <input id="text5" type="text">
+
+
+
+    <script>
+        let array=[];
+        function result(){
+                 let a=textbox.value;
+                 array.push(a);
+                 console.log(array);
+        }
+    function splitdata(){
+        let seprate=textbox.value.split(',');
+            textbox2.value=seprate;
+        console.log(seprate);
+    }
+    function  slicedata(){
+
+        let start=textbox3.value.split(',')[0];
+        let end=textbox3.value.split(',')[1];
+        let maintext=textbox.value.split(',').slice(start,end);
+        maintextbox.value=maintext;
+        console.log(maintext);
+    }
+    function remove(){
+        let a=text5.value.splice(0,1)[0];
+        let b=text5.value.splice(0,1)[1];
+      let sub=maintext.value.splice(start,end);
+      removebox=sub;
+      console.log(sub)
+    }
+    
+    
+    </script>
+    
+</body>
+</html>

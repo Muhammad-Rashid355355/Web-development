@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #left{
+            border-radius: 40px;
+            border: 2px solid palevioletred;
+        }
+        #right{
+            border-radius: 40px;
+            border: 2px solid palevioletred;
+        }
+        #btn1{
+            width: 100px;
+            height: 40px;
+            background-color: peru;
+            border-radius: 40px; 
+        }
+        #btn2{
+            width: 100px;
+            height: 40px;
+            background-color: peru;
+            border-radius: 40px; 
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <textarea name="" id="left" cols="30" rows="40"></textarea>
+    <button id="btn1">Move Right</button>
+    <button id="btn2">Move left</button>
+    <textarea name="" id="right" cols="30" rows="40"></textarea>
+    <textarea name="" id="third" cols="30" rows="40"></textarea>
+    <button id="btn3">Move Right</button>
+    <button id="btn4">Move left</button>
+    <textarea name="" id="fourth" cols="30" rows="40"></textarea>
+    <script>
+        btn1.onclick =  function move(){
+            let a= left.value;
+            right.value= a;
+            left.value='';
+            console.log(a);
+        }
+        btn2.onclick =  function move(){
+            let a= right.value;
+            left.value=a;
+            right.value='';
+
+            console.log(a);
+        }
+        btn3.onclick =  function move(){
+            let a= right.value;
+            third.value=a;
+            right.value='';
+
+            console.log(a);
+        }
+        btn4.onclick =  function move(){
+            let a= third.value;
+            fourth.value=a;
+            third.value='';
+
+            console.log(a);
+        }
+    </script>
+    
+</body>
+</html>

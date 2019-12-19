@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    #tabeldata{
+        margin-left: 400px;
+        margin-top: 8px;
+        position: absolute;
+    }
+    #tbldata{
+        margin-top: 8px;
+    }
+    
+    </style>
+</head>
+
+<body>
+    <button onclick="addcatagories()">Add catagories</button>
+    <button onclick="addstock()">Add stock</button>
+    <select id="select"></select>
+    <button onclick="addview()">View</button>
+    <input type="text" onclick="searchitem()" id="searchitems"></input>
+    <button id="print" onclick="printdata()">Print</button>
+    <table border="5px" id="tabeldata">
+        <th>catagoryname</th>
+        <th>item Name</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <tbody id="inputtbl"></tbody>
+    </table>
+
+    <table border="5px" id="tbldata">
+        <tr>
+            <th>Stock Name</th>
+            <th>item Name</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Delete</th>
+        </tr>
+        <tbody id="tbl"></tbody>
+    </table>
+    <script>
+        let catagories = [];
+        catagories =  JSON.parse(localStorage.getItem("mydata")) || [];
+        update();
+        function addcatagories() {
+            let data = prompt("enter catagories");
+            let godam = {
+                name: data,
+                items: []
+            }
+            select.innerHTML += `<option>${godam.name}</option>`;
+            catagories.push(godam);
+            console.log(catagories);
+            localStorage.setItem("mydata",JSON.stringify(catagories));
+        }
+        function addstock() {
+            let stock = prompt("enter stock");
+            let quantity = prompt("enter quantity");
+            let price = prompt("enter price");
+            let inventory = {
+                nam: stock,
+                qty: quantity,
+                Rs: price
+            }
+            let category = catagories.find(function (item) {
+                if (item.name == select.value) {
+                    return true;
+                }
+            });
+            category.items.push(inventory);
+            console.log(catagories);
+            localStorage.setItem("mydata",JSON.stringify(catagories));
+        
+        }
+        function addview() {
+            tbl.innerHTML="";
+            catagories.forEach(function (catogry) {
+                catogry.items.forEach(function (atom, index) {
+                    tbl.innerHTML += `<tr><td>${catogry.name}</td><td>${atom.nam}</td><td>${atom.qty}</td><td>${atom.Rs}</td><td> <button data-item=${index} data-catagory=${catogry.name} id="delete" onclick="del(event)">Delete</button></td></tr>`
+                });
+            });
+            searchitem();
+        }
+        function del(evt) {
+            let index = event.target.getAttribute('data-item');
+            console.log(index);
+            let catagoryname = event.target.getAttribute('data-catagory');
+            console.log(catagoryname);
+            // let catagorystock = evt.target.parentNode.previousElementSibling.previousElementSibling.previousElementSibling.previousElementSibling.innerText;
+            let categoryFound = catagories.find(function (catagory) {
+                if (catagory.name == catagoryname) {
+                    return true
+                }
+            });
+            categoryFound.items.splice(index, 1);
+            localStorage.setItem("mydata",JSON.stringify(catagories));
+            addview();
+        }
+        function update(){
+            catagories.forEach(function(catagory){
+             
+                select.innerHTML+=`<option>${catagory.name}</option>`;
+            });
+        }
+       function searchitem(){
+           catagories.forEach(function(catagory){
+                   if(catagory.name==searchitems.value){
+                   }
+               console.log(searchitems.value);
+           });
+       };
+       function printdata(){
+           let dataa=searchitems.value;
+           let dataview=catagories.find(function(item){
+               if(dataa==item.name){
+                   return true;
+               }
+               inputtbl.innerHTML+=`<tr><td>${dataa}</td><td>${item.nam}</td><td>${item.qty}</td><td>${item.Rs}</td></tr>`
+           });
+       };
+
+
+
+
+    </script>
+
+</body>
+
+</html>

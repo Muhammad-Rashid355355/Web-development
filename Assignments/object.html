@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="#">
+
+        <input type="text" id="name1" oninput="remove()" onclick="name2()" placeholder="name...">
+        <input type="text" id="email1" oninput="remove1()" onclick="email2()" placeholder="email">
+        <input type="text" id="city1" oninput="remove3()" onclick="city2()" placeholder="city">
+        <select name="addvalue" id="sel" onchange="select()">
+            <!-- <option value="">.....</option>
+    <option value="">Faisalabad</option>
+    <option value="">Islamabad</option>
+    <option value="">Multan</option> -->
+        </select>
+        <button onclick="addvalue1()">addvalue</button>
+    </form>
+    <table id="mytbl" border="5px">
+        <th>Name</th>
+        <th>E-mail</th>
+        <th>City</th>
+    </table>
+
+
+    <script>
+        let array = [];
+        function addvalue1() {
+            name2(),email2(),city2();
+
+            let data = {
+                name: name1.value,
+                email: email1.value,
+                city: city1.value,
+            }
+            array.push(data)
+            sel.innerHTML += `<option>${email1.value}</option>`
+            console.log(array);
+        }
+        function select() {
+            let a = sel.value;
+            let b = array.find(function(item){
+                if(a==item.email){
+                    return true;
+                }
+                console.log(array)
+                mytbl.innerHTML+=`<tr><td>${name1.value}</td><td>${email1.value}</td><td>${city1.value}</td></tr>`;
+
+            });
+            console.log(b);
+
+        }
+        function name2() {
+            if (name1.value == ""){
+                name1.style.border = "1px solid red"
+            }
+        }
+        function remove() {
+           if (name1.value != "") {
+                name1.style.border = ""
+            } else {
+                name1.style.border = "1px solid red"
+            }
+            //  console.log("a")
+        }
+        function email2() {
+            if (email1.value == "")
+                email1.style.border = "1px solid red"
+        }
+        function remove1() {
+            if (email1.value != "") {
+                email1.style.border = ""
+            } else {
+                email1.style.border = "1px solid red"
+            }
+            //  console.log("a")
+        }
+        function city2() {
+            if (city1.value == "")
+                city1.style.border = "1px solid red"
+        }
+        function remove3() {
+            if (city1.value != "") {
+                city1.style.border = ""
+            } else {
+                city1.style.border = "1px solid red"
+            }
+            //  console.log("a")
+        }
+    </script>
+</body>
+</html>

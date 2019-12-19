@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    #mytable{
+        display: inline-block;
+    }
+    #mytbl{
+        display: inline-block;
+    }
+    #mytble{
+        display: inline-block;
+    }
+    </style>
+</head>
+<body>
+    
+    Asc <input type="radio" name="arrangearray" value="asc" onchange="arrangedata()" >
+    DES<input type="radio" name="arrangearray" value="des" onchange="arrangedata()">
+    org<input type="radio" name="arrangearray" value="org" onchange="arrangedata()">
+    <button onclick="pushdata()">pushdata</button>
+    <button onclick="evendata()">Even data</button>
+    <button onclick="odddata()">Odd data</button> 
+    <table border="5px" id="mytable"></table>
+    <table border="5px" id="mytbl"></table>
+    <table border="5px" id="mytble"></table>
+    <script>
+    let data=[10,4,6,8,9,3,5,2,1,7];
+    let data2=data.slice(0);
+    updatemytble();
+    function arrangedata(){
+    data.sort(function(a,b){
+            if(event.target.value=="asc"){
+            if(a>b){
+            return 1;
+        }
+            else if(a<b){
+            return -1;
+            }
+        else{
+            return 0;
+        }
+            }else if(event.target.value=="des"){
+        if(a>b){
+            return -1;
+        }
+            else if(a<b){
+            return 1;
+            }
+        else{
+            return 0;
+        }
+            }
+        if(event.target.value=="org"){
+          data=data2;
+        }
+        });
+        updatemytble();
+    };
+    function updatemytble(){
+        mytable.innerHTML="";
+        data.forEach(function(item){
+            mytable.innerHTML+=`<tr><td>${item}</td></tr>`;
+        }); 
+    }
+    function pushdata(){
+        let getdata=prompt("enter numbers");
+        if(isNaN(getdata)){
+            alert ("push wrong number")
+        }else{
+            
+        data.push(getdata);
+        }
+        updatemytble();
+    }
+    function evendata(){
+        let evenresult=data.filter(function(evenitem){
+            if(evenitem %2 == "1"){
+                // data.style.background="green";
+                return true;
+            }
+            // for(let item of evenitem){
+            // evenitem.style.background="pink";
+            // }
+            mytbl.innerHTML+=`<tr><td>${evenitem}</td></tr>`;
+                console.log(evenitem);
+        })
+    }
+    function odddata(){
+        let oddresult=data.filter(function(odditem){
+            if(odditem %2 == "0"){
+                // data.style.background="pink";
+                return true;
+            }
+            // for(let item of odditems){
+            //     odditem.style.background="green";
+            // }
+            mytble.innerHTML+=`<tr><td>${odditem}</td></tr>`;
+                console.log(odditem);
+        })
+    }
+    </script>
+</body>
+</html>

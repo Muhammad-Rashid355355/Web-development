@@ -1,0 +1,18 @@
+
+let str = "I like FSD and KHI";
+
+        let cities = ["FSD", "KHI"];
+
+
+        str.split(' ').forEach(function (item) {
+
+
+            if (cities.indexOf(item) != -1) {
+
+                console.log(item);
+
+            }
+
+        });
+
+

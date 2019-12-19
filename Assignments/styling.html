@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    #td{
+        margin-left: 400px;
+        height: 300px;
+        width: 300px;
+    }
+    </style>
+</head>
+<body>
+    <table border="5px" id="td">
+<tr>
+<td class="box1">box1</td>
+<td class="box2">box2</td>
+<td class="box1">box3</td>
+</tr>
+<tr>
+        <td class="box4">box1</td>
+        <td class="box5">box2</td>
+        <td class="box5">box3</td>
+        </tr>  
+        <tr>
+                <td class="box1">box1</td>
+                <td class="box2">box2</td>
+                <td ><span>box3</span></td>
+                </tr>
+                <tr>
+                        <td Name="box10">box1</td>
+                        <td Name="box10">box2</td>
+                        <td><span>box3</span></td>
+                        </tr>
+    </table>
+    <script>
+    let a=document.querySelector(".box1");
+    a.style.background="red";
+    let b=document.querySelector(".box4");
+    b.style.background="red";
+    let c=document.getElementsByClassName("box5");
+    for(let item of c){
+        item.style.background="green";
+    }
+    let d= document.getElementsByName("box10");
+    for(let item of c){
+        item.style.background="green";
+    }
+    for(let item of d){
+        item.style.background="blue";
+    }
+     let f=document.getElementsByTagName("span");
+     for(let item of f){
+        item.style.background="purple";
+    }
+    
+    
+    </script>
+    
+</body>
+</html>

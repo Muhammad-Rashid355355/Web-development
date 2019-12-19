@@ -1,0 +1,74 @@
+  <table border="1">
+
+        <tr>
+            <td>Biryani</td>
+            <td>150</td>
+            <td> <input class="dishCheck" type="checkbox" /> </td>
+        </tr>
+
+        <tr>
+            <td>Daal</td>
+            <td>60</td>
+            <td> <input class="dishCheck" type="checkbox" /> </td>
+        </tr>
+
+        <tr>
+            <td>Shwarma</td>
+            <td>75</td>
+            <td> <input class="dishCheck" type="checkbox" /> </td>
+        </tr>
+
+        <tr>
+            <td>Colddrink</td>
+            <td>25</td>
+            <td> <input class="dishCheck" type="checkbox" /> </td>
+        </tr>
+
+        <tr>
+            <td>Sabzi</td>
+            <td>65</td>
+            <td> <input id="test1" class="dishCheck" type="checkbox" /> </td>
+        </tr>
+
+        <tr>
+            <td> <button onclick="calcualteBill()">Order</button> </td>
+            <td colspan="2" id="totalBill"> </td>
+        </tr>
+
+
+    </table>
+
+    <script>
+
+        function calcualteBill() {
+
+            let total = 0;
+
+            let dishChecks = document.getElementsByClassName('dishCheck');
+
+            for (let dish of dishChecks) {
+
+                if (dish.checked) {
+
+                    let dishPrice = +dish.parentNode.previousElementSibling.innerText;
+
+                    total += dishPrice;
+
+                    // console.log(price);
+                }
+
+            }
+
+
+        totalBill.innerText = total;
+
+        }
+
+
+    </script>
+
+
+
+</body>
+
+</html>

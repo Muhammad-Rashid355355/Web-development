@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <button id="apple" onclick="apple('apple.webp')">Apple</button>
+  <button id="apple" onclick="apple('banana.webp')">Banana</button>
+  <div id="mydiv">
+   
+  </div>
+  <script>
+    function apple(abc) {
+      let a = document.createElement('img');
+      a.src = abc;
+      mydiv.appendChild(a);
+      a.style.width = "300px";
+      console.log(a);
+    }
+//   function banana(){
+//     let ba= document.createElement('img');
+//  let na= ba.setAttribute('src','banana.webp');
+//  mydiv.appendChild(ba);
+//  console.log(ba);
+//   }
+
+
+
+  </script>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        .color-box {
+            width: 100px;
+            height: 100px;
+            background-color: darkgrey;
+            border-radius: 60px;
+            margin: 10px;
+        }
+
+        #appBox {
+            display: flex;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="appBox">
+
+    </div>
+
+    <script>
+
+        let colors = ['red', 'yellow', 'orange', 'pink', 'magenta']
+
+        for (var i = 0; i < 5; i++) {
+
+
+            let ele = document.createElement('div');
+            ele.className = "color-box";
+            // ele.color = colors[i];
+            ele.setAttribute("data-color", colors[i]);
+
+            ele.onclick = (evt) => {
+
+                let userColor = prompt("Guess color");
+
+                if (userColor == evt.target.getAttribute('data-color')) {
+
+                    alert("Shahbash!");
+                    ele.style.backgroundColor = userColor;
+
+                } else {
+
+                    alert("No Shahbash!");
+
+                    let allCircles = document.querySelectorAll('.color-box');
+
+
+                    allCircles.forEach(function (item) {
+
+                        if(item.getAttribute('data-color') == userColor){
+                            item.style.backgroundColor = userColor;
+                        }
+
+                     });
+                }
+
+            }
+
+            appBox.appendChild(ele);
+
+        }
+
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .baloons {
+            width: 80px;
+            position: absolute;
+        }
+
+        .baloon2 {
+            width: 80px;
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="scorebox"><span id="score">0</span></div> 
+        
+        
+        <div id="balooncontainer">
+    </div>
+    <div id="upperbalooncontainer"></div>
+    <script>
+        let baloon = 6;
+        let explosion = new Audio;
+        explosion.src = "SWYeiq.mp3";
+        for (let index = 0; index < 7; index++) {
+            let newbaloon = document.createElement("img");
+            newbaloon.src = "baloons-"+Math.round(Math.random()*1)+".png";
+            newbaloon.className = "baloons";
+            newbaloon.style.bottom = 0;
+            balooncontainer.appendChild(newbaloon);
+            newbaloon.onclick = function () {
+                newbaloon.remove();
+                explosion.play();
+                explosion.currentTime=0;
+                clearInterval(newbaloon.key);
+                score.innerText = +score.innerText + 5;
+            }
+            newbaloon.style.left = ((index) * 175) + "px";
+            newbaloon.key = setInterval(function () {
+                let newbottom = parseFloat(newbaloon.style.bottom) + 1;
+                newbaloon.style.bottom = newbottom + "px";
+            }, 1 * ((index + 1) * 2));
+        }
+    </script>
+    <script>
+
+        let baloons = 6;
+        let explosion1 = new Audio;
+        explosion1.src = "SWYeiq.mp3";
+        for (let index = 0; index < 7; index++) {
+            let upperbaloon = document.createElement("img");
+            upperbaloon.src = "baloons-"+Math.round(Math.random()*5)+".png";
+            upperbaloon.className = "baloon2"
+            upperbaloon.style.top = 0;
+            upperbalooncontainer.appendChild(upperbaloon);
+            upperbaloon.key = setInterval(function () {
+                let newtop = parseFloat(upperbaloon.style.top) + 1;
+                upperbaloon.style.top = newtop + "px";
+                upperbaloon.onclick = function () {
+                    upperbaloon.remove();
+                    explosion1.play();
+                    explosion1.currentTime=0;
+                    score.innerText = +score.innerText + 5;
+                }
+                upperbaloon.style.left = ((index) * 200) + "px";
+            }, 1 * ((index + 1) * 2))
+        }
+
+    </script>
+
+
+
+
+
+
+</body>
+
+</html>

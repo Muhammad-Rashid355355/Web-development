@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>sign up</title>
+    <link rel="icon" type="img/gic" href="../Projects/signup project/images/signup icon.jpg">
+    <style>
+        .container{
+            width: 500px;
+            height: 500px;
+            background-color: rgba(255, 192, 221, 0.329);
+            text-align: center;
+            margin-left: 400px;
+            margin-top: opx;
+            border-radius: 30px;
+        }
+        .sign-in{
+            font-style: italic;
+            font-size: 30px;
+        }
+        .email{
+            font-size: 30px;
+            font-style: italic;
+        }
+        #email1{
+            width: 300px;
+            height: 20px;
+            border-radius: 40px;
+            background-color: none;
+        }
+        .password{
+            font-size: 30px;
+            font-style: italic;
+        }
+
+        #password1{
+            width: 300px;
+            height: 20px;
+            border-radius: 40px;
+            background-color: none;
+        }
+        .button{
+            width: 100px;
+            height: 40px;
+            border-radius: 40px;
+            background-color: skyblue;
+        }
+
+
+
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <div class="iconimg">
+            <img src="../Projects/signup project/images/signup.jpg" alt="img" width="100px" height="100px">
+        </div>
+            <div class="sign-in">
+            <p><b>Please sign in</b></p>
+        </div>
+            <label class="email">E-mail</label><br>
+            <input id="email1" type="name" name="name" placeholder="E-mail"  required><br>
+            <label class="password">Password</label><br>
+            <input id="password1" type="password" name="password" placeholder="password" required><br>
+        <a href="../Projects/signup project/signup.html" >Creat Account</a>
+        <input id="checkbox" type="checkbox" value="remmber me">Remmber Me 
+        <br>
+            <button class="button" onclick="addvalue()">Sign in</button>
+    </div>
+    <table border="5" id="mytable">
+        <th>e-mail</th>
+        <th>password</th>
+
+    </table>
+    <script>
+       function addvalue(){
+           let email=email1.value;
+           let password=password1.value;
+           mytable.innerHTML+=`<tr> <td>${email}</td><td>${password}</td>  </tr>`    
+       }
+    
+    
+    
+    </script>
+    
+</body>
+</html>

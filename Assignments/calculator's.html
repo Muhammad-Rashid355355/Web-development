@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>calculator</title>
+    <link rel="icon" type="=img/gif" href="A:\Web practicals\calculator imge.png">
+    <style>
+    .container{
+        width: 400px;
+        height: 400px;
+        margin-left: 400px;
+        border: 5px solid burlywood;
+    }
+    .alphabat{
+        width: 96px;
+        height: 80px;
+    }
+    #text{
+        width: 396px;
+        height: 70px;
+        border: 3px solid royalblue;
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <input id="text" type="text">
+         <button class="alphabat" onclick="addvalue('1')">1</button>
+         <button class="alphabat"onclick="addvalue('2')">2</button>
+         <button class="alphabat" onclick="addvalue('3')">3</button>
+         <button class="alphabat" onclick="addvalue('4')">4</button>
+         <button class="alphabat" onclick="addvalue('5')">5</button>
+         <button class="alphabat" onclick="addvalue('6')">6</button>
+         <button class="alphabat" onclick="addvalue('7')">7</button>
+         <button class="alphabat" onclick="addvalue('8')">8</button>
+         <button class="alphabat" onclick="addvalue('9')">9</button>
+         <button class="alphabat" onclick="addvalue('+')">+</button>
+         <button class="alphabat" onclick="addvalue('-')">-</button>
+         <button class="alphabat" onclick="addvalue('/')">/</button>
+         <button class="alphabat" onclick="addvalue('*')">*</button>
+         <button class="alphabat" onclick="addvalue('0')">0</button>
+         <button class="alphabat" onclick="empty('clear')">clear</button>
+         <button class="alphabat" onclick="getresult('=')">=</button>
+         <!-- <button class="alphabat" onclick="Remove('back')">back</button> -->
+    </div>
+    <script>
+    function addvalue(abc){
+             text.value += abc;
+              
+    }
+    function getresult(){
+          let result=eval(text.value);
+          text.value=result;
+    }
+    function empty(){
+        text.value=' ';
+    }
+    function Remove(){
+        let a=text.value;
+           text.value=a;
+    }
+    </script>
+</body>
+</html>

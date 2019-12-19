@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    #boxes{
+        width: 100px;
+        height: 100px;
+        background-color: powderblue;
+        display: inline-block;
+        border: 5px solid palegoldenrod;
+    }
+    
+    
+    
+    </style>
+</head>
+<body>
+        <div id="boxes" onclick="boxblink(event)"></div>
+        <div id="boxes" onclick="boxblink(event)"></div>
+        <div id="boxes" onclick="boxblink(event)"></div>
+        <div id="boxes" onclick="boxblink(event)"></div>
+        <script>
+        function boxblink(){
+            let boxblinking=event.target;
+            setTimeout(function(){
+           boxblinking.style.background="orange";
+            },100);
+            setTimeout(function(){
+                boxblinking.style.background="purple";
+            },2000);
+            setTimeout(function(){
+                boxblinking.style.background="palegreen";
+            },3000);
+            setTimeout(function(){
+                boxblinking.style.background="palegoldenrod";
+            },4000); setTimeout(function(){
+                boxblinking.style.background="powderblue";
+            },5000);
+            
+        }; 
+        </script>   
+</body>
+</html>

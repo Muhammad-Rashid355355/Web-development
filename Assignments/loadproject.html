@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mobail Load</title>
+    <link rel="icon" type="gic/img" href="moblink.jpg">
+    <style>
+    .container1{
+         display: inline-block;
+         background-color: palegreen;
+         width: 500px;
+         height: 500px;
+         border-radius: 50px;
+         text-align: center;
+         margin-left: 300px;
+    }
+    #name{
+        font-style: oblique;
+        font-size: 40px;
+    }
+    #num{
+        font-style: oblique;
+        font-size: 40px;
+    }
+    #tr{
+        font-style: oblique;
+        font-size: 40px;
+    }
+    #comp{
+        font-style: oblique;
+        font-size: 40px;
+    }
+    #abc{
+        width: 450px;
+        height: 40px;
+        border-radius: 20px ;
+        border: 0px;
+    }
+    #number{
+        width: 450px;
+        height: 40px;
+        border-radius: 20px ;
+    }
+    #amount{
+        width: 450px;
+        height: 40px;
+        border-radius: 20px ;
+    }
+    #company{
+        width: 450px;
+        height: 40px;
+        border-radius: 20px ;
+    }
+    #getdata{
+        width: 100px;
+        height: 50px;
+        background-color: peru;
+        border-radius: 20px ;
+    }
+    #sel{
+        width: 100px;
+        height: 40px;
+    }
+
+    /* .container2{
+         display: inline-block;
+         margin-left: 200px;
+    }
+    .container3{
+         display: inline-block;
+         margin-left: 300px;
+    } */
+    
+    
+    
+    </style>
+</head>
+<body>
+    <div class="container1">
+        <label id="name" >Name</label><br>
+    <input type="text" id="abc"><br>
+    <label id="num">Number</label><br>
+    <input type="text" id="number"><br>
+    <label id="tr">Transaction Amount</label><br>
+    <input type="text" id="amount"><br>
+    <label id="comp" >Company</label><br>
+    <input type="text" id="company"><br>
+    <button id="getdata" onclick="addvalue()">Addvalue</button>
+    <select id="sel" onchange="select()">select</select>
+    <table id="tbl" border="5px">
+        <th>Name</th>
+        <th>Number</th>
+        <th>Amount</th>
+        <th>copany</th>
+ </table>
+    </div>
+
+
+</table>
+<script>
+let array=[];
+function addvalue(){
+let data={
+    name:abc.value,
+    number:number.value,
+    ammount:amount.value,
+    company:company.value,
+}
+array.push(data);
+sel.innerHTML+=`<option>${number.value}</option>`;
+console.log(array);
+}
+function select(){
+    let a=sel.value;
+    let b=array.find(function(item){
+      if(a==item.number){
+          return true;
+      }
+    console.log(array);
+    tbl.innerHTML+=`<tr><td>${abc.value}</td><td>${number.value}</td><td>${amount.value}</td><td>${company.value}</td></tr>`
+    });
+    console.log(b);
+}
+
+
+
+</script>
+
+<!-- <div class="container2">
+        <label >Name</label><br>
+    <input type="text" id="name2"><br>
+    <label >Number</label><br>
+    <input type="text" id="number2"><br>
+    <label >Transaction Amount</label><br>
+    <input type="text" id="amount2"><br>
+    <label >Company</label><br>
+    <input type="text" id="company2">
+</div>
+<div class="container3">
+        <label >Name</label><br>
+    <input type="text" id="name3"><br>
+    <label >Number</label><br>
+    <input type="text" id="number3"><br>
+    <label >Transaction Amount</label><br>
+    <input type="text" id="amount3"><br>
+    <label >Company</label><br>
+    <input type="text" id="company3">
+</div> -->
+    
+</body>
+</html>

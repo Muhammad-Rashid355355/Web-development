@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    function getdata(){
+        return new Promise(function(success,error){
+            setTimeout(function(){
+
+            success(20);
+            },4000)
+        })
+    }
+    function Videodownload(){
+        return new Promise(function(main,bug){
+            setTimeout(function(){
+           main(20);
+            },2000)
+        })
+    }
+    getdata().then(function(succ){
+        return Videodownload();
+    })
+    .then(function(succ){
+        return succ*100;
+    }).then(function(succ){
+         console.log(succ);
+    }).catch(function(error){
+        console.log("i am error");
+    })
+    
+    
+    </script>
+    
+</body>
+</html>

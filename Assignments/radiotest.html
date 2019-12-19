@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="radio" id="radio1" name="radio">select
+    <input type="radio" id="radio2" name="radio" >select
+    <button id="btn" onclick="abc()">addvalue</button>
+    <script>
+    function abc(){
+
+        if(radio1.checked || radio2.checked!=""){
+        alert("thanku");
+        return true;
+    }else{
+         alert("please chcked radio first")
+    }
+    }
+    
+    
+    
+    </script>
+    
+</body>
+</html>

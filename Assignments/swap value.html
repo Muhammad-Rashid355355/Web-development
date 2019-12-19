@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .adj {
+            display: flex;
+        }
+
+        .adj1 {
+            display: flex;
+        }
+
+        .adjustBtn {
+            margin-left: 100px;
+
+        }
+
+
+
+
+        .navbar {
+            overflow: hidden;
+            background-color: #828282;
+        }
+
+        .navbar a {
+            float: left;
+            font-size: 16px;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        .dropdown {
+            float: left;
+            overflow: hidden;
+        }
+
+        .dropdown .dropbtn {
+            font-size: 16px;
+            border: none;
+            outline: none;
+            color: white;
+            padding: 14px 16px;
+            background-color: inherit;
+            font-family: inherit;
+            margin: 0;
+        }
+
+        .navbar a:hover,
+        .dropdown:hover .dropbtn {
+            background-color: red;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            float: none;
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+
+
+
+        .customers {
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        .customers td,
+        .customers th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        .customers tr:nth-child(even) {
+            background-color: #f2f2f2;
+
+        }
+
+        .customers tr:hover {
+            background-color: #ddd;
+        }
+
+        .customers th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #4CAF50;
+            color: white;
+        }
+        .topwidth{
+            margin-top: 80px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="navbar">
+        <a href="#home" onclick="ups()">Swipe Up</a>
+        <a href="#news" onclick="down11()">Swipe down</a>
+        <a href="#" onclick="sort(event)" id="asc" value="acending">Acending order</a>
+        <a href="#" onclick="sort2(event)" id="dec" value="decending">Decending Order</a>
+        <div class="dropdown">
+            <button class="dropbtn">Dropdown
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="#" onclick="even()">Get Even Number</a>
+                <a href="#" onclick="odd()">Get Odd Number</a>
+                <a href="#" onclick="enter()">Enter Number</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="adj" id="note1"></div>
+    <table onclick="myFunction(event)" id="mytbl" class="customers" border="1">
+
+
+    </table>
+    <!-- Acending:<input onchange="sort()" type="radio" value="acending" name="sorting" id="asc"> -->
+    <!-- Decending:<input onchange="sort()" type="radio" value="decending" name="sorting" id="dec"> -->
+
+    <table  class="customers topwidth"id="evenNumber" border="1">
+        <tr>
+            <td>Even</td>
+            <!-- <td id="oddd1">Odd</td> -->
+        </tr>
+    </table>
+    <table class="customers" id="evenNumber2" border="1">
+        <tr>
+            <td>Odd</td>
+            <!-- <td id="oddd1">Odd</td> -->
+        </tr>
+    </table>
+    <script>
+        let data = [1, 2, 3, 8, 6, 9, 4, ...getdata()];
+
+        mytbl2();
+
+        function sort(evt) {
+            data.sort(function (a, b) {
+                if (a > b) {
+                    return 1
+
+                }
+                else {
+                    return -1
+                }
+
+            })
+            mytbl2();
+        }
+        function sort2(evt) {
+            data.sort(function (a, b) {
+                if (a > b) {
+                    return -1
+
+                }
+                else {
+                    return 1
+                }
+
+            })
+            mytbl2();
+        }
+
+        // function sort() {
+
+
+        //     if (event.target.value == "decending") {
+        //         data.sort(function (a, b) {
+        //             if (a > b) {
+        //                 return 1
+
+        //             }
+        //             else {
+        //                 return -1
+        //             }
+
+        //         })
+        //     }
+        //     else if (event.target.value == "decending") {
+
+        //         data.sort(function (a, b) {
+        //             if (a > b) {
+        //                 return -1
+
+        //             }
+        //             else {
+        //                 return 1
+        //             }
+
+        //         })
+
+
+        //     }
+        //     mytbl2()
+        // }
+
+        function mytbl2() {
+            mytbl.innerHTML = "";
+
+            data.forEach(function (items) {
+                mytbl.innerHTML += `<tr> <td>${items}  </td> </tr>`
+            })
+
+        }
+
+        function enter() {
+            // let a = String
+            let enterNumber = prompt("Enter the numbers")
+            if (Number.isInteger(parseInt(enterNumber))) {
+
+                data.push(enterNumber)
+                setdata()
+
+            }
+            else {
+                alert("Not a number")
+            }
+
+            mytbl2();
+
+
+        }
+
+
+        function setdata() {
+            localStorage.setItem('detail', JSON.stringify(data))
+        }
+        function getdata() {
+            return JSON.parse(localStorage.getItem("detail")) || [];
+        }
+
+        function even() {
+            for (let x of data) {
+
+                if (x % 2 == 0) {
+                    evenNumber.innerHTML += `<tr><td>${x}</td></tr>`
+                }
+
+
+            }
+
+        }
+        function odd() {
+            // evenNumber.innerHTML = ""
+
+            for (let y of data) {
+
+                if (y % 2 == 1) {
+                    evenNumber2.innerHTML += `<tr>  <td>${y}</td></tr>`
+                }
+
+
+            }
+
+        }
+
+
+        function myFunction(event) {
+            note = document.createElement("h3")
+            note22 = document.createElement("h3")
+            note22.innerText = "Your selected number is ..." + " "
+            note1.appendChild(note22)
+            note.innerText = event.target.firstChild.wholeText;
+            note1.appendChild(note)
+
+            // alert(event.target.firstChild.wholeText);
+        }
+        function ups() {
+
+            note1.innerHTML = "";
+
+            let val = parseInt(note.innerText)
+            let indOf = data.indexOf(val)
+            if (val == data[0]) {
+                alert('Value is also on top ....!')
+                return true
+            }
+            data[indOf] = data[indOf - 1]
+
+            data[indOf - 1] = val
+
+            // data.forEach(function (item, index) {
+
+            //     if (note.innerText == item && note.innerText != data[0]) {
+
+            //         let abc = data[index - 1];
+
+            //         data[index] = abc
+            //         data[index - 1] = item
+
+            //     }
+            // })
+
+            let length1 = data.length - 1
+
+            mytbl2();
+
+        }
+
+        function newDown(ind, item) {
+            data[ind] = item
+            console.log('works');
+
+        }
+        function down11() {
+
+            note1.innerHTML = ""
+
+            let val = parseInt(note.innerHTML)
+
+            let indOf = data.indexOf(val)
+            if (indOf == data.length - 1) {
+                alert('Value is also on bottom')
+                return true
+            }
+
+            data[indOf] = data[indOf + 1]
+
+
+            data[indOf + 1] = val
+
+            let length1 = data.length - 1
+
+            mytbl2();
+        }
+    </script>
+
+
+
+</body>
+
+</html>

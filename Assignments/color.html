@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+
+        #maingame {
+            width: 100vw;
+            background: fixed;
+            background-color:palegreen;
+            display: flex;
+            color: lavender;
+            font-family: fantasy;
+            font-size: 50px;
+            margin: auto;
+            
+           
+        }
+
+        #main {
+            width: 100vw;
+            height: 100vh;
+            color: lavender;
+            font-family: fantasy;
+            font-size: 50px;
+            background-color: peru;
+            display: inline-block;
+            
+
+        }
+
+        .colorBox {
+            width: 120px;
+            height: 120px;
+            background-color: black;
+            margin: 10px;
+            border-radius: 60px;
+            margin: auto;
+            text-align: center;
+            font-size: 20px;
+            font-display: inherit;
+            font-family: monospace;
+            color: lavender;
+            font-style: italic bold;
+            
+
+        }
+
+        #scor {
+            width: 100px;
+            height: 70px;
+            background-color:lightgrey;
+            position: absolute;
+            right: 0;
+            top: 0;
+            text-align: center;
+            color:black;
+
+        }
+        h1{
+           font-style: italic underline; 
+           text-shadow: black;
+           display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+    <section id="main">
+       <h1>Luck GAme </h1>
+        <span id="scor">0</span>
+        <section id="maingame">
+            <!-- <div class="colorBox"></div>
+                <div class="colorBox"></div>
+                <div class="colorBox"></div>
+                <div class="colorBox"></div> -->
+                
+            </section>
+            <h1>'yellow', 'orange', 'red', 'blue','brown','magenta'</h1>
+        </section>
+</body>
+<script>
+    colors = ['yellow', 'orange', 'red', 'blue','brown','magenta']
+    for (let a = 0; a < 7; a++) {
+        let box = document.createElement('div')
+        box.className = 'colorBox'
+        let q=Math.round(Math.random()*3)
+        box.setAttribute('boxcolor', colors[q])
+        maingame.appendChild(box)
+        box.onclick = function () {
+            let getColor = prompt("Guess COlor")
+            if (getColor == box.getAttribute('boxcolor')) {
+                alert("Good")
+                box.style.backgroundColor = getColor;
+                scor.innerText = +scor.innerText + 5
+            }
+            else {
+                alert("Try Again")
+                let boxes = document.querySelectorAll('.colorBox')
+                // let c = boxes.find(function (item) {
+                //     if (item.getAttribute('boxcolor') == getColor)
+                //         return true;
+
+                // })
+                // c.style.backgroundColor = getColor;
+                boxes.forEach((item) => {
+                    if (item.getAttribute('boxcolor') == getColor) {
+                        item.style.backgroundColor = getColor;
+                    }
+                })
+            }
+        }
+    }
+</script>
+
+</html>

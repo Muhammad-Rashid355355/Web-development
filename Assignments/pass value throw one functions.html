@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input id="number1" type="text">
+    <input id="number2" type="text">
+    <input id="number3" type="text">
+    <br>
+    <button onclick="calculate('+')" id="btn1">Add</button>
+    <button onclick="calculate('-')" id="btn2">sub</button>
+    <button onclick="calculate('/')" id="bt3n">div</button>
+    <button onclick="calculate('*')" id="btn4">mul</button>
+    <script>
+         function calculate(op){
+             let a= +number1.value + +number2.value;
+             number3.value=a;
+             if (op == '+'){
+         let a= +number1.value + +number2.value;
+             number3.value=a;
+             }else if(op == '-'){
+                let a= +number1.value - +number2.value;
+             number3.value=a;
+             }else if(op == '/'){
+                let a= +number1.value / +number2.value;
+             number3.value=a;
+             }else if(op == '*'){
+                let a= +number1.value * +number2.value;
+             number3.value=a;
+             }else{
+                 
+                 null
+             }
+         }
+
+
+
+    </script>
+    
+</body>
+</html>

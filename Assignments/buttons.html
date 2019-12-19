@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>buttons</title>
+    <link rel="icon" type="img/gif" href="Assignments images/buttons image.png">
+    <style>
+        #addbutton {
+            width: 100px;
+            height: 40px;
+            border-radius: 40px;
+            background-color: rgba(60, 0, 128, 0.514);
+        }
+
+        #subbutton {
+            width: 100px;
+            height: 40px;
+            border-radius: 40px;
+            background-color: rgba(60, 0, 128, 0.514);
+        }
+
+        #dividbutton {
+            width: 100px;
+            height: 40px;
+            border-radius: 40px;
+            background-color: rgba(60, 0, 128, 0.514);
+        }
+
+        #mulbutton {
+            width: 100px;
+            height: 40px;
+            border-radius: 40px;
+            background-color: rgba(60, 0, 128, 0.514);
+        }
+    </style>
+</head>
+
+<body>
+    <button id="addbutton"><b>Add</b></button>
+    <button id="subbutton"><b>Sub</b></button>
+    <button id="dividbutton"><b>Divide</b></button>
+    <button id="mulbutton"><b>Multiply</b></button>
+    <script>
+        let c = sum(20, 10)
+        //  console.log(c);
+        addbutton.onclick = function () {
+
+
+            let r = sum();
+            console.log("r " + r)
+
+
+        };
+
+        function sum() {
+            let a = 20;
+            let b = 10;
+            let c = a + b;
+            return c;
+            console.log(c);
+
+        }
+
+        // alert("Result is appear")
+
+
+        // let d=   sub(20,10)
+        subbutton.onclick = sub;
+        function sub() {
+            let a = 20;
+            let b = 10;
+            let d = a - b;
+            // return (d)
+            console.log(d);
+
+        }
+
+
+        // let e=   divid(20,10)
+        dividbutton.onclick = divid;
+        function divid() {
+            let a = 20;
+            let b = 10;
+            let e = a / b;
+            // return (e)
+            console.log(e);
+        }
+
+
+        // let f=   mul(20,10)
+        mulbutton.onclick = mul;
+        function mul() {
+            let a = 20;
+            let b = 10;
+            let f = a * b;
+            // return (f)
+            console.log(f);
+        }
+
+
+    </script>
+
+</body>
+
+</html>

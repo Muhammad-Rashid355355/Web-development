@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    #tbl{
+        width: 200px;
+        height: 100px;
+        background-color: cornflowerblue;
+        border-radius: 20px;
+        margin-left: 600px;
+        /* display: inline-block; */
+    }
+    .checkbox{
+        width: 50px;
+        height: 35px;
+    }
+    .qty{
+        width: 80px;
+        height: 65px;
+    }
+    #btn{
+        width: 90px;
+        height: 50px;
+        border-radius: 20px;
+        background-color: greenyellow;
+    }
+    #Allbill{
+        width: 50px;
+        height: 50px;
+    }
+    #cancel{
+        width: 90px;
+        height: 70px;
+        background-color: greenyellow;
+        border-radius: 10px;
+        font-style: italic;
+    }
+    #tabl{
+        background-color: cadetblue;
+        border-radius: 20px;
+        position: absolute;
+        top: 0;
+        margin: 8px;
+        
+    }
+    </style>
+</head>
+<body>
+   
+    <table border="5px" id="tbl">
+        <th>Menu</th>
+        <th>Rupees</th>
+        <th>check Box</th>
+        <th>qty</th>
+        <th>cancel order</th>
+        <th>image</th>
+        <tr>
+            <td>biryani</td>
+            <td>150</td>
+            <td><input class="checkbox" type="checkbox"></td>
+            <td><input class="qty" type="text"></td>
+          <td> <button id="cancel" onclick="cancel(event)">cancel order</button></td> 
+          <td><img src="biryani imge.webp" alt="img" width="100px" height="70px"></td>
+        </tr>
+        <tr>
+            <td>pulaoo</td>
+            <td>140</td>
+            <td><input class="checkbox" type="checkbox"></td>
+            <td><input class="qty" type="text"></td>
+            <td><button  id="cancel" onclick="cancel(event)">cancel order</button></td>
+            <td><img src="pulaoo imges.webp" alt="img" width="100px" height="70px"></td>
+        </tr>
+        <tr>
+            <td>chanee</td>
+            <td>70</td>
+            <td><input class="checkbox" type="checkbox"></td>
+            <td><input class="qty" type="text"></td>
+          <td><button  id="cancel" onclick="cancel(event)">cancel order</button></td>
+          <td><img src="channa image.jpg" alt="img" width="100px" height="70px"></td>
+        </tr>
+        <tr>
+            <td>paeee</td>
+            <td>180</td>
+            <td><input class="checkbox" type="checkbox"></td>
+            <td><input class="qty" type="text"></td>
+           <td> <button  id="cancel" onclick="cancel(event)">cancel order</button></td>
+           <td><img src="paaye image.jpg" alt="img" width="100px" height="70px"></td>
+        </tr>
+        <tr>
+            <td>rasian salad</td>
+            <td>400</td>
+            <td><input class="checkbox" type="checkbox"></td>
+            <td><input class="qty" type="text"></td>
+           <td> <button  id="cancel" onclick="cancel(event)">cancel order</button></td>
+           <td><img src="rasian image.jpg" alt="img" width="100px" height="70px"></td>
+        </tr>
+        <tr>
+            <td>mutton keema</td>
+            <td>200</td>
+            <td><input class="checkbox" type="checkbox"></td>
+            <td><input class="qty" type="text"></td>
+           <td> <button  id="cancel" onclick="cancel(event)">cancel order</button></td>
+           <td><img src="muton keema image.jpg" alt="img" width="100px" height="70px"></td>
+        </tr>
+        <tr>
+            <td> <button id="btn" onclick="totalbill()">total</button></td>
+            <td id="Allbill" colspan="3"></td>
+            <td> <button id="btn" onclick=" print()">print</button></td>
+        
+        </tr>
+    </table>
+    <table  id="tabl" border="5px">
+            <th>Menu</th>
+            <th>Rupees</th>
+            <th>qty</th>
+            <th>total</th>
+            <th>image</th>
+        </table>
+    <script>
+        function cancel(evt){
+           evt.target.parentNode.previousElementSibling.firstElementChild.value="";
+           evt.target.parentNode.previousElementSibling.previousElementSibling.firstElementChild.checked=false;
+           totalbill();
+        }
+        function print(){
+            tabl.innerHTML="";
+            let checkboxes = document.getElementsByClassName("checkbox");
+            for (let dish of checkboxes) {
+                if (dish.checked) {
+                    let menu=dish.parentNode.previousElementSibling.previousElementSibling.innerText;
+                    let rupees=+dish.parentNode.previousElementSibling.innerText;
+                    let quty=+dish.parentNode.nextElementSibling.querySelector('.qty').value;
+                    let totalbills=+dish.parentNode.previousElementSibling.innerText*quty;
+                    let imge=dish.parentNode.nextElementSibling.nextElementSibling.nextElementSibling.innerHTML;
+                    tabl.innerHTML+=`<tr><td>${menu}</td><td>${rupees}</td><td>${quty}</td><td>${totalbills}</td><td>${imge}</td></tr>`
+        }
+    }
+}
+        function totalbill() {
+            let total = 0;
+            let checkboxes = document.getElementsByClassName("checkbox");
+            for (let dish of checkboxes) {
+                if (dish.checked) {
+                    let bill = +dish.parentNode.previousElementSibling.innerText;
+                    let quantity = +dish.parentNode.nextElementSibling.querySelector('.qty').value;
+                    let clr = dish.parentNode.parentNode.style.background="green"
+                    total += (bill * quantity);
+                    if (total >= 500) {
+                        let discount = (total * 10 / 100);
+                        let b = total - discount;
+                        Allbill.innerText = b;
+                    } else {
+                        Allbill.innerText = total;
+                    }
+                   
+                }
+            }
+            
+           
+        }
+    </script>
+</body>
+</html>

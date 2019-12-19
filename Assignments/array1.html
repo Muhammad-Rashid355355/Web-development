@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>array1</title>
+</head>
+<body>
+    <input id="text" size="60px" type="text">
+    <button id="array" onclick="getresult()">add in array</button>
+    <button id="convert" onclick="splitdata()">split data</button>
+    <input id="textbox2" size="60px" type="text">
+    <button onclick="slicedata()">slice data</button>
+    <input id="textbox3" size="60px" type="text">
+    <input id="maintext" size="60px" type="text">
+    <button onclick="addvalue()">add data</button>
+    <table id="mytable" border="3"></table>
+    
+    <script>
+          let array=[];
+    function getresult(){
+        let  a =text.value;
+            array.push(a);
+        console.log(array);
+    }
+    function splitdata(){
+            let seprate=text.value.split(',');
+                 textbox2.value=seprate;
+            console.log(seprate);
+    }
+    function slicedata(){
+     let start= textbox3.value.split(',')[0];
+        let end=textbox3.value.split(',')[1];
+        let textbox4=text.value.split(',').slice(start,end);
+        maintext.value=textbox4;
+          console.log(textbox4);
+         
+    }
+    function addvalue(){
+
+    
+    let city=["fsd","lah","kar","carrot"];
+      city.forEach( function(cityname,index){
+        // function mycity(cityname){
+        //   city.forEach(cityname){
+         let table=  mytable.innerHTML+="<tr><td>" + cityname + "<td>" + index + "</td>" +
+          "</td></tr>"
+              if(cityname.charAt(0)=="c"){
+                  console.log("c-matched")
+              }else{
+                  console.log("c-not matched");
+              }
+          });
+    }
+    </script>
+</body>
+</html>

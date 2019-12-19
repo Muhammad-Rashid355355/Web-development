@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="storedata">
+    <input type="text" id="add">
+    <script>
+        let collect=sum(10,20,30,40,50,60,70,80);
+     function sum(...num){
+       let collect=0;
+       num.forEach(function(item){
+           collect+=item;
+       });
+       storedata.value=collect;
+       return collect;
+     }   
+    let total=sum(1,2,3,4,5,7)
+     function sum(...num){
+    let sum  = num.reduce(function(a,b){
+              return a + b;
+     });
+     console.log(sum);
+     add.value=sum;
+     return sum;
+     }
+    
+    
+    </script>
+    
+</body>
+</html>

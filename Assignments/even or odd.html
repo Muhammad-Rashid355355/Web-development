@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<input id="textbox1" type="text">
+<input id="textbox2" type="text">
+<input id="textbox3" type="text">
+<button onclick="seprate()">even</button>
+<button onclick="seprate1()">odd</button>
+<body>
+    <script>
+       function seprate(){
+           let textbox=textbox1.value.split(',');
+           textbox.forEach(textbox => {
+           if(textbox % 2 == "1"){
+               return textbox;
+           } 
+           textbox2.value+=","+textbox;
+           console.log(textbox);
+       });
+       }
+           function seprate1(){
+           let textvalue=textbox1.value.split(',');
+           textvalue.forEach(textvalue => {
+           if(textvalue % 2 == "0"){
+            return textvalue;
+           }  
+           textbox3.value+=","+textvalue;
+           console.log(textvalue);
+           });
+           }
+    
+    
+    
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    #text1{
+        width: 300px;
+        height: 60px;
+        border-radius: 10px;
+        margin-top: 20px;
+    }
+    #text2{
+        width: 300px;
+        height: 60px;
+        border-radius: 10px;
+    }
+    
+    #text3{
+        width: 300px;
+        height: 60px;
+        border-radius: 10px;
+    }
+    
+    #text4{
+        width: 300px;
+        height: 60px;
+        border-radius: 10px;
+    }
+    #add{
+        width: 90px;
+        height: 40px;
+        background-color: yellowgreen;
+        margin: 5px;
+        border-radius: 10px;
+    }
+    #text5{
+        width: 300px;
+        height: 60px;
+        border-radius: 10px;
+    }
+    .container{
+        width: 500px;
+        height: 600px;
+        margin-left: 450px;
+        background-color: thistle;
+        text-align: center;
+        margin-top: 50px;
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <input id="text1" type="text"><br>
+    <button id="add" onclick="Result()" >Result</button>
+    <br>
+    <input id="text2" type="text"><br>
+    <button id="add" onclick="split()" >split</button>
+    <br>
+    <input id="text3" type="text"><br>
+    <button id="add" onclick="slice()" >slice</button>
+    <br>
+    <input id="text4" type="text"><br>
+    <button id="add" onclick="Result()" >Remove</button><br>
+    <input id="text5" type="text"><br>
+    <input id="text6" type="text"><br>
+</div>
+<script>
+    function Result(){
+        let array=[];
+        let a=text1.value;
+          array.push(a);
+          console.log(array);
+    }
+    function split(){
+        let b=text1.value.split(',');
+        text2.value=b;
+        console.log(b);
+    }
+    function slice(){
+        let start=text3.value.split(',')[0];
+        let end=text3.value.split(',')[1];
+        let maintext=text1.value.split(',').slice(start,end);
+        text4.value=maintext;
+        console.log(maintext);
+    }
+    function splice(){
+        let d=text5.value.splice(0,1)[0];
+        let e=text5.value.splice(0,1)[1];
+        let f=text4.value.splice(start,end);
+        text6.value=f;
+        console.log(f);
+    }
+
+
+
+
+
+
+
+
+</script>
+    
+</body>
+</html>

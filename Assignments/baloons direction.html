@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <title>jQuery UI Draggable - Default functionality</title>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <style>     
+    .baloons{
+        width: 100px;
+        margin-top: 70px;
+        position: absolute;
+
+    }
+    #boxcontainer{
+        width: 200px;
+        height: 400px;
+        border: 5px solid red;
+        margin-left: 500px;
+        margin-top: 200px;
+       
+    }    
+    </style>
+</head>
+<body>
+        
+      </head>
+      <body>
+       
+            <div id="draggable" class="ui-widget-content">
+                </div>
+       
+    <div id="balooncontainer">
+
+    </div>
+            <div id="boxcontainer">
+        
+            </div>
+                   
+                
+    <script>
+    let newbaloon=document.createElement("img");
+    newbaloon.src="baloons-3.png";
+    newbaloon.className="baloons"
+    newbaloon.style.left=0;
+    balooncontainer.appendChild(newbaloon);
+        let direction="left";
+    setInterval(function(){
+        let newdirection = parseInt(newbaloon.style.left);
+        if(direction=="left"){
+        if((newdirection+100)<window.innerWidth){
+            direction="left";
+        }
+        else{ 
+            direction="right";
+        }
+        let newleft= newdirection+1;
+        newbaloon.style.left= newleft + "px";
+        }    
+         if(direction =="right"){    
+                if(newdirection==0){
+                 direction ="left";
+              }          
+                else{
+                    direction="right";
+                }
+        let newleft= newdirection-1; 
+        newbaloon.style.left= newleft + "px";
+
+        }
+        let baloonleft=newbaloon.offsetLeft;
+        let baloonright=newbaloon.offsetLeft+newbaloon.offsetWidth;
+        let boxleft=boxcontainer.offsetLeft;
+        let boxright=boxcontainer.offsetLeft+boxcontainer.offsetWidth;
+        if(baloonright > boxleft && baloonleft < boxright){
+            newbaloon.src="baloons-4.png"
+        }
+        else{
+            newbaloon.src="baloons-3.png"
+        }
+        if(baloonleft>boxleft){
+            boxcontainer.style.height="200px";
+            boxcontainer.style.background="pink";
+              if(baloonleft>boxright){
+                boxcontainer.style.height="400px";
+                boxcontainer.style.background="none";
+             }
+             }else if(baloonleft<boxleft){
+                boxcontainer.style.height="400px";
+                boxcontainer.style.background="none";
+        }
+            
+        
+
+    },1);
+    </script>
+    <script>
+      $( function() {
+     $( "#boxcontainer" ).draggable();
+                    } ); $( function() {
+     $( "#boxcontainer" ).resizeable();
+                    } );
+    </script>
+    
+</body>
+</html>

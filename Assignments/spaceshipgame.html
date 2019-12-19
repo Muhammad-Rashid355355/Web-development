@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+      background-image: url("wall.jpg");
+      width: 100vw;
+      height: 100vh;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #myship {
+      position: absolute;
+    }
+
+    /* @keyframes stoneanimation{
+      from{
+        transform: rotate(0deg);
+      }
+      to{
+        transform: rotate(360deg);
+      }
+    } */
+    .spacestons {
+      width: 100px;
+      height: 100px;
+      position: absolute;
+      animation: stoneanimation 4s linear 0s;
+      animation-iteration-count: infinite;
+    }
+
+    #gameover {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+      bottom: 0;
+      height: fit-content;
+      width: fit-content;
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="myship">
+    <img src="spaceship.png" alt="img" width="100px" height="100px">
+  </div>
+  <div id="myspacestone"></div>
+  <div id="gameover"> <img src="gameover2.jpg" alt="img" width="400px" height="200px"></div>
+  <script>
+    let game = {
+      keys: [],
+      gamestart: true,
+      genratestone() {
+        let stone = 5;
+       let explosion=new Audio;
+        explosion.src="SWYeiq.mp3";
+        for (let index = 0; index < stone; index++) {
+          let newstone = document.createElement("img");
+          newstone.src = "stone-" + Math.round(Math.random() * 0) + ".png";
+          newstone.className = "spacestons"
+          newstone.style.top = 0;
+          myspacestone.appendChild(newstone);
+          newstone.style.left = ((index) * 200) + "px";
+          let mykey = setInterval(function () {
+
+            let stonetop = newstone.offsetTop;
+            let stoneleft = newstone.offsetLeft;
+            let stoneright = newstone.offsetLeft + newstone.offsetWidth;
+            let stonebottom = newstone.offsetTop + newstone.offsetHeight;
+            let spaceshipleft = myship.offsetLeft;
+            let spaceshipright = myship.offsetLeft + myship.offsetWidth;
+            let spaceshipbottom = myship.offsetTop + myship.offsetHeight;
+            let spaceshiptop = myship.offsetTop;
+            if (stoneright > spaceshipleft && stoneleft < spaceshipright && stonebottom > spaceshiptop && stonetop < spaceshipbottom) {
+              console.log("destroye");
+              game.ongameover();
+            }
+            if (stonetop > (innerHeight)) {
+              newstone.style.top = 0;
+              newstone.style.left = (Math.random() * innerWidth) + "px";
+            } else {
+              newstone.style.top = newstone.offsetTop + 1 + "px";
+            }
+          });
+          game.keys.push(mykey);
+        }
+      },
+      ongameover() {
+        gameover.style.display = "block";
+        game.gamestart = false;
+        game.keys.forEach((key) => {
+          clearInterval(key);
+        });
+        explosion.play();
+      },
+      start() {
+        myship.style.top = innerHeight / 2 + "px";
+        myship.style.left = innerWidth / 2 + "px";
+
+       let stopship= setInterval(function () {
+          myship.style.top = myship.offsetTop + 1 + "px";
+        }, 100);     
+      },
+      bindkey() {
+        document.body.onkeydown = function (evt) {
+          if (game.gamestart == false) {
+            return;
+          }
+          switch (evt.keyCode) {
+            case 37:
+              game.moveleft();
+              console.log("left");
+              break;
+            case 38:
+              game.moveup();
+              console.log("top");
+              break;
+            case 39:
+              game.moveright();
+              console.log("right")
+              break;
+            case 40:
+              game.movedown();
+              console.log("down")
+              break;
+          }
+        }
+      },
+      moveleft() {
+        myship.style.left = myship.offsetLeft - 25 + "px";
+      },
+      moveright() {
+        myship.style.left = myship.offsetLeft + 25 + "px";
+      },
+      movedown() {
+        myship.style.top = myship.offsetTop + 25 + "px";
+      },
+      moveup() {
+        myship.style.top = myship.offsetTop - 25 + "px";
+      },
+    };
+    window.onload = function () {
+      game.start();
+      game.bindkey();
+      game.genratestone();
+    }
+  </script>
+</body>
+
+</html>

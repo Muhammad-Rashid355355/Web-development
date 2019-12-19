@@ -1,0 +1,28 @@
+jub queryselectorAll karna ho to tub styling jo ha wo for loop me 
+ya kisi or loop me
+=presnet in;
+it is use for get numbers from pixel;
+=setiterval;
+it is use function for countdown;
+= clearInterval;
+it use for clear interval time or stop remaining iterval time;
+basically its give us a unique key of (setinterval function) for identity of (setinterval function);
+=cleartimeout;
+its same like clearInterval but it use in (settimeout functions);
+=parseint;
+it use to get numbers from alphabat;
+e.g
+1234abc;
+sol.
+1234 ans;
+parseint or parsefloat sir tub use karna jub koi numbers chahye witoutalphabat;
+off.settop, etc is k andar parseint ya parsefloat lagany ki zaroorat nahi ku k ye hamy bydefault numbers deta ha;
+=promis:
+ye b ek function k andar hi kaam karta ha, is k andar 2 part  hoty ha success and error,
+success is called with then function,
+and error is called with catch function,
+ek waqat me ek hi function call ho ga chahe success ka karlo chahe error ka karlo,
+=array ka name and agy sort lga dena ha phr womarry sort ho jae gi (eg);
+array.sort(function(a,b){
+
+});
